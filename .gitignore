@@ -1,17 +1,13 @@
-# Ignore Gradle files
-.gradle/
-local.properties
 *.iml
-
-# Ignore Android Studio files
-.idea/
-.kotlin/
-*.log
-*.hprof
-
-# Ignore build output
-app/build/
-build/
-*.apk
-*.aab
+.gradle
+/local.properties
+/.idea/
+/.kotlin/
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+app/build
 *.jar
