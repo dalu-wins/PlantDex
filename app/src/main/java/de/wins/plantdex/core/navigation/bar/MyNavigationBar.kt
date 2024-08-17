@@ -1,9 +1,5 @@
 package de.wins.plantdex.core.navigation.bar
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AutoAwesomeMosaic
-import androidx.compose.material.icons.filled.Grass
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -13,16 +9,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import de.wins.plantdex.core.navigation.ItemPair
 
 @Composable
 fun MyNavigationBar() {
 
     var selectedItem by remember { mutableIntStateOf(0) }
-    val items = listOf(
-        ItemPair("Collection", Icons.Default.AutoAwesomeMosaic),
-        ItemPair("Scan", Icons.Default.Grass),
-        ItemPair("Settings", Icons.Default.Settings)
-    )
+    val items = ItemPair.LIST
 
     NavigationBar {
         items.forEachIndexed { index, item ->
