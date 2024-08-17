@@ -1,13 +1,5 @@
-*.iml
 .gradle
-/local.properties
-/.idea/
-/.kotlin/
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
+.idea
+.kotlin
 app/build
-*.jar
+local.properties
