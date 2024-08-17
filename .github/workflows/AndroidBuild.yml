@@ -1,4 +1,4 @@
-name: AndroidBuild
+name: Android CI/CD
 on:
   push:
     branches:
@@ -16,6 +16,15 @@ jobs:
           java-version: 17
           distribution: corretto
 
+      # Run unit tests
+      - name: Unit Test
+        run: ./gradlew testDebugUnitTest
+
+      - name: Android Test Report
+        uses: asadmansr/android-test-report-action@v1.2.0
+        if: ${{ always() }} # IMPORTANT: run Android Test Report
+
+      # Build apk
       - name: Build with Gradle
         run: ./gradlew build
 
