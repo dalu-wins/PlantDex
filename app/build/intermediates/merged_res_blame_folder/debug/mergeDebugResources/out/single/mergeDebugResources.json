@@ -1,0 +1,66 @@
+[
+    {
+        "merged": "de.wins.plantdex.app-debug-78:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "de.wins.plantdex.app-main-80:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "de.wins.plantdex.app-debug-78:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "de.wins.plantdex.app-main-80:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "de.wins.plantdex.app-debug-78:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "de.wins.plantdex.app-main-80:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "de.wins.plantdex.app-debug-78:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "de.wins.plantdex.app-main-80:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "de.wins.plantdex.app-debug-78:/xml_backup_rules.xml.flat",
+        "source": "de.wins.plantdex.app-main-80:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "de.wins.plantdex.app-debug-78:/mipmap-anydpi_ic_launcher_round.xml.flat",
+        "source": "de.wins.plantdex.app-main-80:/mipmap-anydpi/ic_launcher_round.xml"
+    },
+    {
+        "merged": "de.wins.plantdex.app-debug-78:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "de.wins.plantdex.app-main-80:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "de.wins.plantdex.app-debug-78:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "de.wins.plantdex.app-main-80:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "de.wins.plantdex.app-debug-78:/mipmap-anydpi_ic_launcher.xml.flat",
+        "source": "de.wins.plantdex.app-main-80:/mipmap-anydpi/ic_launcher.xml"
+    },
+    {
+        "merged": "de.wins.plantdex.app-debug-78:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "de.wins.plantdex.app-main-80:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "de.wins.plantdex.app-debug-78:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "de.wins.plantdex.app-main-80:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "de.wins.plantdex.app-debug-78:/drawable_ic_launcher_background.xml.flat",
+        "source": "de.wins.plantdex.app-main-80:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "de.wins.plantdex.app-debug-78:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "de.wins.plantdex.app-main-80:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "de.wins.plantdex.app-debug-78:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "de.wins.plantdex.app-main-80:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "de.wins.plantdex.app-debug-78:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "de.wins.plantdex.app-main-80:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "de.wins.plantdex.app-debug-78:/xml_data_extraction_rules.xml.flat",
+        "source": "de.wins.plantdex.app-main-80:/xml/data_extraction_rules.xml"
+    }
+]
