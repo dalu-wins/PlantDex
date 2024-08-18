@@ -1,4 +1,4 @@
-package de.wins.plantdex.core.navigation
+package de.wins.plantdex.core.navigation.items
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AutoAwesomeMosaic
