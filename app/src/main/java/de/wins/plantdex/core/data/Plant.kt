@@ -1,3 +1,5 @@
 package de.wins.plantdex.core.data
 
-data class Plant (val name: String, val region: String, val imageId: Int)
+import java.time.LocalDate
+
+data class Plant (val name: String, val scanDate: LocalDate, val imageId: Int)

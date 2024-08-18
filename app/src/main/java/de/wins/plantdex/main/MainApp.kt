@@ -14,13 +14,13 @@ import androidx.window.core.layout.WindowWidthSizeClass
  * @param windowSizeClass Defines the [WindowSizeClass] of the current screen
  */
 @Composable
-fun MyApp(windowSizeClass: WindowSizeClass = currentWindowAdaptiveInfo().windowSizeClass) {
+fun MainApp(windowSizeClass: WindowSizeClass = currentWindowAdaptiveInfo().windowSizeClass) {
 
     // Determine navigation style
     val showNavigationBar = windowSizeClass.windowWidthSizeClass == WindowWidthSizeClass.COMPACT
     val showNavigationRail = !showNavigationBar
 
-    MyScreen(
+    MainScreen(
         showNavigationBar = showNavigationBar,
         showNavigationRail = showNavigationRail
     )

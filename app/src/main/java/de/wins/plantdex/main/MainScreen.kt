@@ -24,7 +24,7 @@ import de.wins.plantdex.scanner.ScanFAB
  * https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-screen-sizes
  */
 @Composable
-fun MyScreen(
+fun MainScreen(
     showNavigationBar: Boolean,
     showNavigationRail: Boolean
 ) {
@@ -45,7 +45,6 @@ fun MyScreen(
 
     Scaffold(
         modifier = scaffoldModifier,
-        topBar = { MySearchBar() },
         bottomBar = {
             if (showNavigationBar) {
                 MyNavigationBar(

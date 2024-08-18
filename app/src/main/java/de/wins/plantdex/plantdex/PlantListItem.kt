@@ -1,10 +1,11 @@
 package de.wins.plantdex.plantdex
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
@@ -22,18 +23,19 @@ import androidx.compose.ui.unit.dp
 import de.wins.plantdex.core.data.Plant
 
 @Composable
-fun PlantCard(plant: Plant) {
-    Card (modifier = Modifier.padding(4.dp)) {
-        Column {
+fun PlantListItem(plant: Plant) {
+    Card (modifier = Modifier.padding(4.dp).height(100.dp)) {
+        Row {
             Image(
                 modifier = Modifier
-                    .fillMaxSize()
-                    .align(Alignment.CenterHorizontally),
+                    .fillMaxHeight()
+                    .align(Alignment.CenterVertically),
                 contentScale = ContentScale.Fit,
                 painter = painterResource(id = plant.imageId),
                 contentDescription = "placeholder image"
             )
-            Row (modifier = Modifier.padding(start = 16.dp, bottom = 16.dp, top = 16.dp)) {
+            Row (modifier = Modifier.padding(start = 16.dp, bottom = 16.dp, top = 16.dp).weight(0.8f),
+                verticalAlignment = Alignment.CenterVertically) {
                 Column (modifier = Modifier.weight(0.9f)) {
                     Text(
                         text = plant.name,
@@ -44,7 +46,7 @@ fun PlantCard(plant: Plant) {
                         fontWeight = FontWeight.Thin
                     )
                 }
-                Column (modifier = Modifier.fillMaxHeight()) {
+                Column (modifier = Modifier.fillMaxHeight(), verticalArrangement = Arrangement.Center) {
                     IconButton(onClick = { /*TODO*/ }) {
                         Icon(Icons.Default.MoreVert, "Show plant actions")
                     }
