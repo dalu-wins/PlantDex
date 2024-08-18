@@ -6,8 +6,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
-import de.wins.plantdex.collection.CollectionRoute
-import de.wins.plantdex.collection.CollectionScreen
+import de.wins.plantdex.plantdex.PlantDexRoute
+import de.wins.plantdex.plantdex.PlantDexScreen
 import de.wins.plantdex.datasheet.DatasheetRoute
 import de.wins.plantdex.datasheet.DatasheetScreen
 import de.wins.plantdex.browse.BrowseRoute
@@ -19,9 +19,9 @@ import de.wins.plantdex.scanner.ScannerScreen
 
 @Composable
 fun MyNavHost(navController: NavHostController, innerPaddingValues: PaddingValues) {
-    NavHost(navController = navController, startDestination = CollectionRoute) {
-        composable<CollectionRoute> {
-            CollectionScreen(navController, innerPaddingValues)
+    NavHost(navController = navController, startDestination = PlantDexRoute) {
+        composable<PlantDexRoute> {
+            PlantDexScreen(navController, innerPaddingValues)
         }
         composable<DatasheetRoute> {
             val args = it.toRoute<DatasheetRoute>()
