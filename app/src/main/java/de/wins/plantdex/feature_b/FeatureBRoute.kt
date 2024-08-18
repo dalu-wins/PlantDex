@@ -1,7 +1,7 @@
-package de.wins.plantdex.scanner
+package de.wins.plantdex.feature_b
 
 import de.wins.plantdex.core.navigation.Route
 import kotlinx.serialization.Serializable
 
 @Serializable
-data object ScannerRoute : Route
+data object FeatureBRoute : Route
