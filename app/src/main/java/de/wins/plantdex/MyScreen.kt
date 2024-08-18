@@ -16,7 +16,6 @@ import de.wins.plantdex.core.navigation.MyNavigationBar
 import de.wins.plantdex.core.navigation.MyNavigationRail
 import de.wins.plantdex.core.navigation.NavigationItem
 import de.wins.plantdex.scanner.ScanFAB
-import de.wins.plantdex.scanner.ScannerRoute
 
 /**
  * MyScreen defines what the user sees. It operates with the flags defined by MyApp.
@@ -32,7 +31,7 @@ fun MyScreen(
     val navController = rememberNavController()
     var selectedItemIndex by rememberSaveable { mutableIntStateOf(1) }
 
-    var modifier = Modifier.fillMaxSize()
+    var scaffoldModifier = Modifier.fillMaxSize()
     if (showNavigationRail) {
         MyNavigationRail(
             selectedItemIndex = selectedItemIndex,
@@ -41,11 +40,11 @@ fun MyScreen(
                 navController.navigate(NavigationItem.LIST[selectedItemIndex].route)
             }
         )
-        modifier = modifier.padding(start = 80.dp)
+        scaffoldModifier = scaffoldModifier.padding(start = 80.dp)
     }
 
     Scaffold(
-        modifier = modifier,
+        modifier = scaffoldModifier,
         bottomBar = {
             if (showNavigationBar) {
                 MyNavigationBar(
@@ -59,8 +58,8 @@ fun MyScreen(
         },
         floatingActionButton = {
             if (!showNavigationRail) ScanFAB {
-                selectedItemIndex = -1  // current screen is not in navigation bar / rail
-                navController.navigate(ScannerRoute)
+                selectedItemIndex = NavigationItem.LIST.indexOf(NavigationItem.SCAN)  // current screen is not in navigation bar / rail
+                navController.navigate(NavigationItem.SCAN.route)
             }
         }
     ) { innerPaddingValues ->

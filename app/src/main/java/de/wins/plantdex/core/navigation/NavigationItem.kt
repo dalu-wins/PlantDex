@@ -1,22 +1,29 @@
 package de.wins.plantdex.core.navigation
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Abc
+import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.AutoAwesomeMosaic
 import androidx.compose.material.icons.filled.Grass
+import androidx.compose.material.icons.filled.Public
 import androidx.compose.ui.graphics.vector.ImageVector
+import de.wins.plantdex.browse.BrowseRoute
 import de.wins.plantdex.collection.CollectionRoute
-import de.wins.plantdex.feature_a.FeatureARoute
-import de.wins.plantdex.feature_b.FeatureBRoute
+import de.wins.plantdex.profile.ProfileRoute
 import de.wins.plantdex.scanner.ScannerRoute
 
 data class NavigationItem(val label: String, val icon: ImageVector, val route: Route) {
     companion object {
-        val LIST = listOf(
-            NavigationItem("Feature A", Icons.Default.Abc, FeatureARoute),
-            NavigationItem("PlantDex", Icons.Default.AutoAwesomeMosaic, CollectionRoute),
-            NavigationItem("Feature B", Icons.Default.Abc, FeatureBRoute)
-        )
+        val PLANTDEX = NavigationItem("PlantDex", Icons.Default.AutoAwesomeMosaic, CollectionRoute)
         val SCAN = NavigationItem("Scan", Icons.Default.Grass, ScannerRoute)
+        val BROWSE = NavigationItem("Browse", Icons.Default.Public, BrowseRoute)
+        val PROFILE = NavigationItem("Profile", Icons.Default.AccountCircle, ProfileRoute)
+
+        val LIST = listOf(
+            BROWSE,
+            PLANTDEX,
+            PROFILE,
+            SCAN
+        )
+        val NAVIGATION_LIST = LIST.take(3)
     }
 }

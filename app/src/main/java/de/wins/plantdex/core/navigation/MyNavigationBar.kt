@@ -11,7 +11,7 @@ fun MyNavigationBar(
     selectedItemIndex: Int,
     onNavigate: (Int) -> Unit
 ) {
-    val items = NavigationItem.LIST
+    val items = NavigationItem.NAVIGATION_LIST
 
     NavigationBar {
         items.forEachIndexed { index, item ->

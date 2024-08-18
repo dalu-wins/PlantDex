@@ -1,11 +1,11 @@
-package de.wins.plantdex.feature_a
+package de.wins.plantdex.profile
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 
 @Composable
-fun FeatureAScreen(
+fun FeatureBScreen(
     navController: NavController,
     innerPaddingValues: PaddingValues
 ) {
