@@ -9,6 +9,8 @@ import androidx.window.core.layout.WindowWidthSizeClass
  * MyApp contains windows size logic. See for more information:
  * https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-screen-sizes
  *
+ * Sets flags for MyScreen
+ *
  * @param windowSizeClass Defines the [WindowSizeClass] of the current screen
  */
 @Composable
