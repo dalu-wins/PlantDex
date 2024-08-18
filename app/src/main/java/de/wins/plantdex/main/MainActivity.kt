@@ -1,4 +1,4 @@
-package de.wins.plantdex
+package de.wins.plantdex.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

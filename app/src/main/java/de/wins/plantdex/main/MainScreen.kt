@@ -1,4 +1,4 @@
-package de.wins.plantdex
+package de.wins.plantdex.main
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -45,6 +45,7 @@ fun MyScreen(
 
     Scaffold(
         modifier = scaffoldModifier,
+        topBar = { MySearchBar() },
         bottomBar = {
             if (showNavigationBar) {
                 MyNavigationBar(

@@ -11,9 +11,9 @@ import de.wins.plantdex.collection.CollectionScreen
 import de.wins.plantdex.datasheet.DatasheetRoute
 import de.wins.plantdex.datasheet.DatasheetScreen
 import de.wins.plantdex.browse.BrowseRoute
-import de.wins.plantdex.browse.FeatureAScreen
+import de.wins.plantdex.browse.BrowseScreen
 import de.wins.plantdex.profile.ProfileRoute
-import de.wins.plantdex.profile.FeatureBScreen
+import de.wins.plantdex.profile.ProfileScreen
 import de.wins.plantdex.scanner.ScannerRoute
 import de.wins.plantdex.scanner.ScannerScreen
 
@@ -31,10 +31,10 @@ fun MyNavHost(navController: NavHostController, innerPaddingValues: PaddingValue
             ScannerScreen(navController, innerPaddingValues)
         }
         composable<BrowseRoute> {
-            FeatureAScreen(navController, innerPaddingValues)
+            BrowseScreen(navController, innerPaddingValues)
         }
         composable<ProfileRoute> {
-            FeatureBScreen(navController, innerPaddingValues)
+            ProfileScreen(navController, innerPaddingValues)
         }
     }
 }

@@ -1,4 +1,4 @@
-package de.wins.plantdex
+package de.wins.plantdex.main
 
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.runtime.Composable

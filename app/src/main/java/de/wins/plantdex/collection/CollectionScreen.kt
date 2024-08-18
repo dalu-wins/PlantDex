@@ -22,7 +22,7 @@ fun CollectionScreen(
     ) {
         items(100) {
             Text(
-                text = "Item$it",
+                text = "My plant $it",
                 modifier = Modifier.padding(16.dp)
             )
         }
