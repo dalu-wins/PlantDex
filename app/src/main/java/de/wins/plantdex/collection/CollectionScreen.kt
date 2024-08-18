@@ -1,4 +1,4 @@
-package de.wins.plantdex.collection;
+package de.wins.plantdex.collection
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
