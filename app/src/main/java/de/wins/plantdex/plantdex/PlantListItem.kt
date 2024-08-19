@@ -1,9 +1,11 @@
 package de.wins.plantdex.plantdex
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -23,14 +25,15 @@ import androidx.compose.ui.unit.dp
 import de.wins.plantdex.core.data.Plant
 
 @Composable
-fun PlantListItem(plant: Plant) {
-    Card (modifier = Modifier.padding(4.dp).height(100.dp)) {
+fun PlantListItem(plant: Plant, onClick: () -> Unit) {
+    Card (modifier = Modifier.padding(6.dp).height(80.dp).clickable(onClick = onClick)) {
         Row {
             Image(
                 modifier = Modifier
                     .fillMaxHeight()
+                    .aspectRatio(1f)
                     .align(Alignment.CenterVertically),
-                contentScale = ContentScale.Fit,
+                contentScale = ContentScale.Crop,
                 painter = painterResource(id = plant.imageId),
                 contentDescription = "placeholder image"
             )

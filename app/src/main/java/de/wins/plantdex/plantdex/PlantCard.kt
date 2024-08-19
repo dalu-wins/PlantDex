@@ -1,8 +1,10 @@
 package de.wins.plantdex.plantdex
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -22,14 +24,15 @@ import androidx.compose.ui.unit.dp
 import de.wins.plantdex.core.data.Plant
 
 @Composable
-fun PlantCard(plant: Plant) {
-    Card (modifier = Modifier.padding(4.dp)) {
+fun PlantCard(plant: Plant, onClick: () -> Unit) {
+    Card (modifier = Modifier.padding(6.dp).clickable(onClick = onClick)) {
         Column {
             Image(
                 modifier = Modifier
                     .fillMaxSize()
+                    .aspectRatio(1.4f)
                     .align(Alignment.CenterHorizontally),
-                contentScale = ContentScale.Fit,
+                contentScale = ContentScale.Crop,
                 painter = painterResource(id = plant.imageId),
                 contentDescription = "placeholder image"
             )

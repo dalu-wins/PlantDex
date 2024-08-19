@@ -5,8 +5,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.Dashboard
-import androidx.compose.material.icons.filled.List
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -22,18 +22,18 @@ fun TitleRow(
     onPlantsAsListToggled: () -> Unit
 ) {
     Row(
-        modifier = Modifier.fillMaxWidth().padding(horizontal = 8.dp).padding(top = 8.dp),
+        modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        Text(text = "My Plants", fontWeight = FontWeight.SemiBold)
+        Text(text = "My Plants", fontWeight = FontWeight.SemiBold, modifier = Modifier.padding(8.dp))
         if (plantsAsList) {
             IconButton(onClick = { onPlantsAsListToggled() }) {
                 Icon(Icons.Default.Dashboard, "Switch between dashboard and list view")
             }
         } else {
             IconButton(onClick = { onPlantsAsListToggled() }) {
-                Icon(Icons.Default.List, "Switch between dashboard and list view")
+                Icon(Icons.AutoMirrored.Filled.List, "Switch between dashboard and list view")
             }
         }
     }

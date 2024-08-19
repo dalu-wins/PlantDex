@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import de.wins.plantdex.datasheet.DatasheetRoute
 
 @Composable
 fun PlantDexScreen(
@@ -36,7 +37,7 @@ fun PlantDexScreen(
     Column(
         modifier = Modifier
             .padding(innerPaddingValues)
-            .padding(horizontal = 16.dp),
+            .padding(horizontal = 16.dp)
     ) {
         TitleRow(
             plantsAsList = plantsAsList,
@@ -47,7 +48,9 @@ fun PlantDexScreen(
         if (plantsAsList) {
             LazyColumn {
                 items(plants) {plant ->
-                    PlantListItem(plant)
+                    PlantListItem(plant, onClick = {
+                        navController.navigate(DatasheetRoute(plants.indexOf(plant)))
+                    })
                 }
             }
         } else {
@@ -55,7 +58,9 @@ fun PlantDexScreen(
                 columns = GridCells.Adaptive(minSize = 160.dp)
             ) {
                 items(plants) {plant ->
-                    PlantCard(plant)
+                    PlantCard(plant, onClick = {
+                        navController.navigate(DatasheetRoute(plants.indexOf(plant)))
+                    })
                 }
             }
         }

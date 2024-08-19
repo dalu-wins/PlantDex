@@ -21,9 +21,7 @@ data class NavigationItem(val label: String, val icon: ImageVector, val route: R
         val LIST = listOf(
             BROWSE,
             PLANTDEX,
-            PROFILE,
-            SCAN
+            PROFILE
         )
-        val NAVIGATION_LIST = LIST.take(3)
     }
 }

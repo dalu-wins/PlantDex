@@ -6,12 +6,12 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
-import de.wins.plantdex.plantdex.PlantDexRoute
-import de.wins.plantdex.plantdex.PlantDexScreen
-import de.wins.plantdex.datasheet.DatasheetRoute
-import de.wins.plantdex.datasheet.DatasheetScreen
 import de.wins.plantdex.browse.BrowseRoute
 import de.wins.plantdex.browse.BrowseScreen
+import de.wins.plantdex.datasheet.DatasheetRoute
+import de.wins.plantdex.datasheet.DatasheetScreen
+import de.wins.plantdex.plantdex.PlantDexRoute
+import de.wins.plantdex.plantdex.PlantDexScreen
 import de.wins.plantdex.profile.ProfileRoute
 import de.wins.plantdex.profile.ProfileScreen
 import de.wins.plantdex.scanner.ScannerRoute

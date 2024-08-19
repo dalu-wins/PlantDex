@@ -10,6 +10,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.rememberNavController
 import de.wins.plantdex.core.navigation.MyNavHost
 import de.wins.plantdex.core.navigation.MyNavigationBar
@@ -34,11 +35,17 @@ fun MainScreen(
     var scaffoldModifier = Modifier.fillMaxSize()
     if (showNavigationRail) {
         MyNavigationRail(
-            selectedItemIndex = selectedItemIndex,
             onNavigate = {
                 selectedItemIndex = it
-                navController.navigate(NavigationItem.LIST[selectedItemIndex].route)
-            }
+                navController.navigate(NavigationItem.LIST[selectedItemIndex].route)  {
+                    popUpTo(navController.graph.findStartDestination().id) {
+                        saveState = true
+                    }
+                    launchSingleTop = true
+                    restoreState = true
+                }
+            },
+            navController = navController
         )
         scaffoldModifier = scaffoldModifier.padding(start = 80.dp)
     }
@@ -47,19 +54,28 @@ fun MainScreen(
         modifier = scaffoldModifier,
         bottomBar = {
             if (showNavigationBar) {
-                MyNavigationBar(
-                    selectedItemIndex = selectedItemIndex,
-                    onNavigate = {
-                        selectedItemIndex = it
-                        navController.navigate(NavigationItem.LIST[selectedItemIndex].route)
+                MyNavigationBar(onNavigate = {
+                    selectedItemIndex = it
+                    navController.navigate(NavigationItem.LIST[selectedItemIndex].route) {
+                        popUpTo(navController.graph.findStartDestination().id) {
+                            saveState = true
+                        }
+                        launchSingleTop = true
+                        restoreState = true
                     }
-                )
+                },
+                    navController = navController)
             }
         },
         floatingActionButton = {
             if (!showNavigationRail) ScanFAB {
-                selectedItemIndex = NavigationItem.LIST.indexOf(NavigationItem.SCAN)  // current screen is not in navigation bar / rail
-                navController.navigate(NavigationItem.SCAN.route)
+                navController.navigate(NavigationItem.SCAN.route)  {
+                    popUpTo(navController.graph.findStartDestination().id) {
+                        saveState = true
+                    }
+                    launchSingleTop = true
+                    restoreState = true
+                }
             }
         }
     ) { innerPaddingValues ->
