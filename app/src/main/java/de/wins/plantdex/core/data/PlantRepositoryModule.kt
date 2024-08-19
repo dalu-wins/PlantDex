@@ -20,6 +20,6 @@ object PlantRepositoryModule {
      */
     @Provides
     @Singleton
-    fun provideProductRepository() : PlantRepository = PlantRepositoryImpl()
+    fun provideProductRepository(): PlantRepository = PlantRepositoryImpl()
 
 }

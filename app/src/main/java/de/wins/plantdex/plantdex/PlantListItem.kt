@@ -26,7 +26,10 @@ import de.wins.plantdex.core.data.Plant
 
 @Composable
 fun PlantListItem(plant: Plant, onClick: () -> Unit) {
-    Card (modifier = Modifier.padding(6.dp).height(80.dp).clickable(onClick = onClick)) {
+    Card(modifier = Modifier
+        .padding(6.dp)
+        .height(80.dp)
+        .clickable(onClick = onClick)) {
         Row {
             Image(
                 modifier = Modifier
@@ -37,9 +40,13 @@ fun PlantListItem(plant: Plant, onClick: () -> Unit) {
                 painter = painterResource(id = plant.imageId),
                 contentDescription = "placeholder image"
             )
-            Row (modifier = Modifier.padding(start = 16.dp, bottom = 16.dp, top = 16.dp).weight(0.8f),
-                verticalAlignment = Alignment.CenterVertically) {
-                Column (modifier = Modifier.weight(0.9f)) {
+            Row(
+                modifier = Modifier
+                    .padding(start = 16.dp, bottom = 16.dp, top = 16.dp)
+                    .weight(0.8f),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column(modifier = Modifier.weight(0.9f)) {
                     Text(
                         text = plant.name,
                         fontWeight = FontWeight.Bold
@@ -49,7 +56,10 @@ fun PlantListItem(plant: Plant, onClick: () -> Unit) {
                         fontWeight = FontWeight.Thin
                     )
                 }
-                Column (modifier = Modifier.fillMaxHeight(), verticalArrangement = Arrangement.Center) {
+                Column(
+                    modifier = Modifier.fillMaxHeight(),
+                    verticalArrangement = Arrangement.Center
+                ) {
                     IconButton(onClick = { /*TODO*/ }) {
                         Icon(Icons.Default.MoreVert, "Show plant actions")
                     }

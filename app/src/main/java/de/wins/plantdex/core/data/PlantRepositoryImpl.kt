@@ -4,7 +4,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-class PlantRepositoryImpl() : PlantRepository {
+class PlantRepositoryImpl : PlantRepository {
 
     private var _plants: MutableStateFlow<MutableList<Plant>> = MutableStateFlow(mutableListOf())
 

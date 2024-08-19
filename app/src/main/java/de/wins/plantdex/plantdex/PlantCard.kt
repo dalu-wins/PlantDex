@@ -25,7 +25,9 @@ import de.wins.plantdex.core.data.Plant
 
 @Composable
 fun PlantCard(plant: Plant, onClick: () -> Unit) {
-    Card (modifier = Modifier.padding(6.dp).clickable(onClick = onClick)) {
+    Card(modifier = Modifier
+        .padding(6.dp)
+        .clickable(onClick = onClick)) {
         Column {
             Image(
                 modifier = Modifier
@@ -36,8 +38,8 @@ fun PlantCard(plant: Plant, onClick: () -> Unit) {
                 painter = painterResource(id = plant.imageId),
                 contentDescription = "placeholder image"
             )
-            Row (modifier = Modifier.padding(start = 16.dp, bottom = 16.dp, top = 16.dp)) {
-                Column (modifier = Modifier.weight(0.9f)) {
+            Row(modifier = Modifier.padding(start = 16.dp, bottom = 16.dp, top = 16.dp)) {
+                Column(modifier = Modifier.weight(0.9f)) {
                     Text(
                         text = plant.name,
                         fontWeight = FontWeight.Bold
@@ -47,7 +49,7 @@ fun PlantCard(plant: Plant, onClick: () -> Unit) {
                         fontWeight = FontWeight.Thin
                     )
                 }
-                Column (modifier = Modifier.fillMaxHeight()) {
+                Column(modifier = Modifier.fillMaxHeight()) {
                     IconButton(onClick = { /*TODO*/ }) {
                         Icon(Icons.Default.MoreVert, "Show plant actions")
                     }

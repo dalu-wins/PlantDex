@@ -7,7 +7,9 @@ import de.wins.plantdex.core.navigation.NavigationItem
 
 @Composable
 fun ScanFAB(onClick: () -> Unit) {
-    FloatingActionButton(onClick = onClick) {
+    FloatingActionButton(
+        onClick = onClick
+    ) {
         Icon(NavigationItem.SCAN.icon, NavigationItem.SCAN.label)
     }
 }

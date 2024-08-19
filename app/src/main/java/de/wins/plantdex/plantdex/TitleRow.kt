@@ -26,7 +26,11 @@ fun TitleRow(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        Text(text = "My Plants", fontWeight = FontWeight.SemiBold, modifier = Modifier.padding(8.dp))
+        Text(
+            text = "My Plants",
+            fontWeight = FontWeight.SemiBold,
+            modifier = Modifier.padding(8.dp)
+        )
         if (plantsAsList) {
             IconButton(onClick = { onPlantsAsListToggled() }) {
                 Icon(Icons.Default.Dashboard, "Switch between dashboard and list view")

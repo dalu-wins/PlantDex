@@ -17,8 +17,10 @@ fun DatasheetScreen(
     innerPaddingValues: PaddingValues,
     selectedPlantIndex: Int
 ) {
-    Column (
-        modifier = Modifier.fillMaxSize().padding(innerPaddingValues),
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(innerPaddingValues),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {

@@ -12,8 +12,14 @@ import javax.inject.Inject
 class PlantDexViewModel @Inject constructor(val plantRepository: PlantRepository) : ViewModel() {
 
     fun populateWithExamples() {
-        for(i in 1..50) {
-            plantRepository.addPlant(plant = Plant("MyPlant $i", LocalDate.now(), R.drawable.placeholder))
+        for (i in 1..50) {
+            plantRepository.addPlant(
+                plant = Plant(
+                    "MyPlant $i",
+                    LocalDate.now(),
+                    R.drawable.placeholder
+                )
+            )
         }
     }
 

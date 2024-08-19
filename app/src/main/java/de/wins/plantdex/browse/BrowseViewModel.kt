@@ -6,5 +6,4 @@ import de.wins.plantdex.core.data.PlantRepository
 import javax.inject.Inject
 
 @HiltViewModel
-class BrowseViewModel @Inject constructor(plantRepository: PlantRepository) : ViewModel() {
-}
+class BrowseViewModel @Inject constructor(plantRepository: PlantRepository) : ViewModel()

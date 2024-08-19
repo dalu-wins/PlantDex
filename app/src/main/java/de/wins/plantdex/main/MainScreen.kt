@@ -37,7 +37,7 @@ fun MainScreen(
         MyNavigationRail(
             onNavigate = {
                 selectedItemIndex = it
-                navController.navigate(NavigationItem.LIST[selectedItemIndex].route)  {
+                navController.navigate(NavigationItem.LIST[selectedItemIndex].route) {
                     popUpTo(navController.graph.findStartDestination().id) {
                         saveState = true
                     }
@@ -54,29 +54,33 @@ fun MainScreen(
         modifier = scaffoldModifier,
         bottomBar = {
             if (showNavigationBar) {
-                MyNavigationBar(onNavigate = {
-                    selectedItemIndex = it
-                    navController.navigate(NavigationItem.LIST[selectedItemIndex].route) {
+                MyNavigationBar(
+                    onNavigate = {
+                        selectedItemIndex = it
+                        navController.navigate(NavigationItem.LIST[selectedItemIndex].route) {
+                            popUpTo(navController.graph.findStartDestination().id) {
+                                saveState = true
+                            }
+                            launchSingleTop = true
+                            restoreState = true
+                        }
+                    },
+                    navController = navController
+                )
+            }
+        },
+        floatingActionButton = {
+            if (!showNavigationRail) ScanFAB(
+                onClick = {
+                    navController.navigate(NavigationItem.SCAN.route) {
                         popUpTo(navController.graph.findStartDestination().id) {
                             saveState = true
                         }
                         launchSingleTop = true
                         restoreState = true
                     }
-                },
-                    navController = navController)
-            }
-        },
-        floatingActionButton = {
-            if (!showNavigationRail) ScanFAB {
-                navController.navigate(NavigationItem.SCAN.route)  {
-                    popUpTo(navController.graph.findStartDestination().id) {
-                        saveState = true
-                    }
-                    launchSingleTop = true
-                    restoreState = true
                 }
-            }
+            )
         }
     ) { innerPaddingValues ->
         MyNavHost(navController, innerPaddingValues)

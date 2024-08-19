@@ -47,7 +47,7 @@ fun PlantDexScreen(
         )
         if (plantsAsList) {
             LazyColumn {
-                items(plants) {plant ->
+                items(plants) { plant ->
                     PlantListItem(plant, onClick = {
                         navController.navigate(DatasheetRoute(plants.indexOf(plant)))
                     })
@@ -57,7 +57,7 @@ fun PlantDexScreen(
             LazyVerticalGrid(
                 columns = GridCells.Adaptive(minSize = 160.dp)
             ) {
-                items(plants) {plant ->
+                items(plants) { plant ->
                     PlantCard(plant, onClick = {
                         navController.navigate(DatasheetRoute(plants.indexOf(plant)))
                     })
