@@ -29,6 +29,7 @@ fun MyNavigationRail(
         modifier = Modifier.displayCutoutPadding(),
         header = {
             ScannerFAB {
+                // TODO onEvent
                 context.startActivity(Intent(context, ScannerActivity::class.java))
             }
         }

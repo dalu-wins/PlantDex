@@ -52,6 +52,7 @@ fun PlantDexScreen(
             LazyColumn {
                 items(plants) { plant ->
                     PlantListItem(plant, onClick = {
+                        // TODO Duplicate Code -> onEvent
                         intent.putExtra("plantIndex", viewModel.getPlantIndex(plant))
                         context.startActivity(intent)
                     })
@@ -63,6 +64,7 @@ fun PlantDexScreen(
             ) {
                 items(plants) { plant ->
                     PlantCard(plant, onClick = {
+                        // TODO Duplicate Code -> onEvent
                         intent.putExtra("plantIndex", viewModel.getPlantIndex(plant))
                         context.startActivity(intent)
                     })
