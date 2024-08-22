@@ -3,8 +3,8 @@ package de.wins.plantdex.main_activity.features.plantdex
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import de.wins.plantdex.R
-import de.wins.plantdex.core.data.Plant
-import de.wins.plantdex.core.data.PlantRepository
+import de.wins.plantdex.core.Plant
+import de.wins.plantdex.core.PlantRepository
 import java.time.LocalDate
 import javax.inject.Inject
 

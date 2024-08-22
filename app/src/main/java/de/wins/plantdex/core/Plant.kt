@@ -1,4 +1,4 @@
-package de.wins.plantdex.core.data
+package de.wins.plantdex.core
 
 import java.time.LocalDate
 

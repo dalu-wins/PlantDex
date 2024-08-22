@@ -21,7 +21,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import de.wins.plantdex.core.data.Plant
+import de.wins.plantdex.core.Plant
 
 @Composable
 fun PlantCard(plant: Plant, onClick: () -> Unit) {
