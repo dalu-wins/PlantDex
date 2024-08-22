@@ -39,7 +39,7 @@ fun PlantDexScreen(
     Column(
         modifier = Modifier
             .padding(innerPaddingValues)
-            .padding(horizontal = 16.dp)
+            .padding(horizontal = 8.dp)
     ) {
         TitleRow(
             plantsAsList = plantsAsList,

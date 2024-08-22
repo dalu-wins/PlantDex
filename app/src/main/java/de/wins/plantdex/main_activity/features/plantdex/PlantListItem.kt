@@ -29,7 +29,7 @@ import de.wins.plantdex.core.Plant
 @Composable
 fun PlantListItem(plant: Plant, onClick: () -> Unit) {
     Card(modifier = Modifier
-        .padding(6.dp)
+        .padding(5.dp)
         .height(80.dp)
         .clickable(onClick = onClick)) {
         Row {

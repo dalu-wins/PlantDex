@@ -28,7 +28,7 @@ import de.wins.plantdex.core.Plant
 @Composable
 fun PlantCard(plant: Plant, onClick: () -> Unit) {
     Card(modifier = Modifier
-        .padding(6.dp)
+        .padding(5.dp)
         .clickable(onClick = onClick)) {
         Column {
             Image(
