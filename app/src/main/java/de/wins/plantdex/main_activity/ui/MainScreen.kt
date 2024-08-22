@@ -1,4 +1,4 @@
-package de.wins.plantdex.main_activity.app
+package de.wins.plantdex.main_activity.ui
 
 import android.content.Intent
 import androidx.compose.foundation.layout.Row
@@ -17,11 +17,11 @@ import de.wins.plantdex.main_activity.navigation.MyNavHost
 import de.wins.plantdex.main_activity.navigation.MyNavigationBar
 import de.wins.plantdex.main_activity.navigation.MyNavigationRail
 import de.wins.plantdex.main_activity.navigation.NavigationItem
-import de.wins.plantdex.scanner_activity.ScanFAB
+import de.wins.plantdex.main_activity.navigation.ScannerFAB
 import de.wins.plantdex.scanner_activity.ScannerActivity
 
 /**
- * MyScreen defines what the user sees. It operates with the flags defined by MyApp.
+ * [MainScreen] defines what the user sees. It operates with the flags defined by [MainApp].
  *
  * See for more information:
  * https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-screen-sizes
@@ -55,7 +55,7 @@ fun MainScreen(
             }
         },
         floatingActionButton = {
-            if (!showNavigationRail) ScanFAB(
+            if (!showNavigationRail) ScannerFAB(
                 onClick = {
                     context.startActivity(Intent(context, ScannerActivity::class.java))
                 }

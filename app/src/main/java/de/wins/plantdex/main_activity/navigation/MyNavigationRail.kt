@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import de.wins.plantdex.scanner_activity.ScanFAB
 import de.wins.plantdex.scanner_activity.ScannerActivity
 
 @Composable
@@ -29,7 +28,7 @@ fun MyNavigationRail(
     NavigationRail(
         modifier = Modifier.displayCutoutPadding(),
         header = {
-            ScanFAB {
+            ScannerFAB {
                 context.startActivity(Intent(context, ScannerActivity::class.java))
             }
         }

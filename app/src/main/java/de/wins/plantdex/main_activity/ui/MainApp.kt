@@ -1,4 +1,4 @@
-package de.wins.plantdex.main_activity.app
+package de.wins.plantdex.main_activity.ui
 
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.runtime.Composable
@@ -6,10 +6,10 @@ import androidx.window.core.layout.WindowSizeClass
 import androidx.window.core.layout.WindowWidthSizeClass
 
 /**
- * MyApp contains windows size logic. See for more information:
+ * [MainApp] contains windows size logic. See for more information:
  * https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-screen-sizes
  *
- * Sets flags for MyScreen
+ * Sets flags for [MainScreen]
  *
  * @param windowSizeClass Defines the [WindowSizeClass] of the current screen
  */

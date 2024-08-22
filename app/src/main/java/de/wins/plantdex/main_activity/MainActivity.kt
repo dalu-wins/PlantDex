@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import dagger.hilt.android.AndroidEntryPoint
-import de.wins.plantdex.main_activity.app.MainApp
+import de.wins.plantdex.main_activity.ui.MainApp
 import de.wins.plantdex.theme.PlantDexTheme
 
 @AndroidEntryPoint

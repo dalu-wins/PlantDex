@@ -47,11 +47,13 @@ fun PlantDexScreen(
                 plantsAsList = !plantsAsList
             }
         )
+        val intent = Intent(context, DatasheetActivity::class.java)
         if (plantsAsList) {
             LazyColumn {
                 items(plants) { plant ->
                     PlantListItem(plant, onClick = {
-                       context.startActivity(Intent(context, DatasheetActivity::class.java))
+                        intent.putExtra("plantIndex", viewModel.getPlantIndex(plant))
+                        context.startActivity(intent)
                     })
                 }
             }
@@ -61,7 +63,8 @@ fun PlantDexScreen(
             ) {
                 items(plants) { plant ->
                     PlantCard(plant, onClick = {
-                        context.startActivity(Intent(context, DatasheetActivity::class.java))
+                        intent.putExtra("plantIndex", viewModel.getPlantIndex(plant))
+                        context.startActivity(intent)
                     })
                 }
             }

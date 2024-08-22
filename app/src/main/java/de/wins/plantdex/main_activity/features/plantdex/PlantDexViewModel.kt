@@ -23,4 +23,8 @@ class PlantDexViewModel @Inject constructor(val plantRepository: PlantRepository
         }
     }
 
+    fun getPlantIndex(plant: Plant) : Int {
+        return plantRepository.plants.value.indexOf(plant)
+    }
+
 }

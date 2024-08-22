@@ -8,7 +8,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DatasheetViewModel @Inject constructor(val plantRepository: PlantRepository) : ViewModel() {
+
     fun getPlant(index: Int) : Plant {
         return plantRepository.plants.value[index]
     }
+
 }
