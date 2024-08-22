@@ -1,6 +1,7 @@
 package de.wins.plantdex.main_activity.features.plantdex
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.basicMarquee
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -22,6 +23,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import de.wins.plantdex.core.Plant
 
 @Composable
@@ -34,7 +36,7 @@ fun PlantListItem(plant: Plant, onClick: () -> Unit) {
             Image(
                 modifier = Modifier
                     .fillMaxHeight()
-                    .aspectRatio(1f)
+                    .aspectRatio(1.2f)
                     .align(Alignment.CenterVertically),
                 contentScale = ContentScale.Crop,
                 painter = painterResource(id = plant.imageId),
@@ -49,11 +51,12 @@ fun PlantListItem(plant: Plant, onClick: () -> Unit) {
                 Column(modifier = Modifier.weight(0.9f)) {
                     Text(
                         text = plant.name,
-                        fontWeight = FontWeight.Bold
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.basicMarquee()
                     )
                     Text(
                         text = plant.scanDate.toString(),
-                        fontWeight = FontWeight.Thin
+                        fontSize = 14.sp
                     )
                 }
                 Column(
