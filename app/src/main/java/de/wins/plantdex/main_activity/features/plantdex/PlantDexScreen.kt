@@ -31,7 +31,7 @@ fun PlantDexScreen(
     val context = LocalContext.current
     val plants by viewModel.plantRepository.plants.collectAsState()
 
-    var _listAsCards by rememberSaveable { mutableStateOf(listAsCards) }
+    var rememberedListAsCards by rememberSaveable { mutableStateOf(listAsCards) }
 
     // TODO Delete later. This line is just for testing how the ui looks
     if (plants.isEmpty()) viewModel.populateWithExamples()
@@ -44,11 +44,11 @@ fun PlantDexScreen(
         TitleRow(
             listAsCards = listAsCards,
             onPlantsAsListToggled = {
-                _listAsCards = !_listAsCards
+                rememberedListAsCards = !rememberedListAsCards
             }
         )
         val intent = Intent(context, DatasheetActivity::class.java)
-        if (_listAsCards) {
+        if (rememberedListAsCards) {
             LazyVerticalGrid(
                 columns = GridCells.Adaptive(minSize = 160.dp)
             ) {
