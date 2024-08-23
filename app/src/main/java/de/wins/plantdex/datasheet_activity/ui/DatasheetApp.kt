@@ -2,9 +2,8 @@ package de.wins.plantdex.datasheet_activity.ui
 
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.runtime.Composable
+import androidx.window.core.layout.WindowHeightSizeClass
 import androidx.window.core.layout.WindowSizeClass
-import androidx.window.core.layout.WindowWidthSizeClass
-import de.wins.plantdex.main_activity.ui.MainScreen
 
 /**
  * [DatasheetApp] contains windows size logic. See for more information:
@@ -21,8 +20,8 @@ fun DatasheetApp(
     windowSizeClass: WindowSizeClass = currentWindowAdaptiveInfo().windowSizeClass
 ) {
 
-    // Determine navigation style
-    val showTopBar = windowSizeClass.windowWidthSizeClass == WindowWidthSizeClass.COMPACT
+    // Determine ui style
+    val showTopBar = windowSizeClass.windowHeightSizeClass != WindowHeightSizeClass.COMPACT
 
     DatasheetScreen(
         selectedPlantIndex = selectedPlantIndex,
