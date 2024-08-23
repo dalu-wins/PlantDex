@@ -19,8 +19,10 @@ fun MyNavigationRail(
     onNavigate: (Int) -> Unit,
     navController: NavController
 ) {
-    val context = LocalContext.current
+
     val items = NavigationItem.LIST
+
+    val context = LocalContext.current
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
     val currentRoute = currentDestination?.route

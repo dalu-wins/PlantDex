@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun TitleRow(
-    plantsAsList: Boolean,
+    listAsCards: Boolean,
     onPlantsAsListToggled: () -> Unit
 ) {
     Row(
@@ -31,13 +31,13 @@ fun TitleRow(
             fontWeight = FontWeight.SemiBold,
             modifier = Modifier.padding(8.dp)
         )
-        if (plantsAsList) {
+        if (listAsCards) {
             IconButton(onClick = { onPlantsAsListToggled() }) {
-                Icon(Icons.Default.Dashboard, "Switch between dashboard and list view")
+                Icon(Icons.AutoMirrored.Filled.List, "Switch between dashboard and list view")
             }
         } else {
             IconButton(onClick = { onPlantsAsListToggled() }) {
-                Icon(Icons.AutoMirrored.Filled.List, "Switch between dashboard and list view")
+                Icon(Icons.Default.Dashboard, "Switch between dashboard and list view")
             }
         }
     }

@@ -13,10 +13,15 @@ import de.wins.plantdex.main_activity.features.profile.ProfileRoute
 import de.wins.plantdex.main_activity.features.profile.ProfileScreen
 
 @Composable
-fun MyNavHost(navController: NavHostController, innerPaddingValues: PaddingValues) {
+fun MyNavHost(
+    listAsCards: Boolean,
+    doubleColumn: Boolean,
+    navController: NavHostController,
+    innerPaddingValues: PaddingValues
+) {
     NavHost(navController = navController, startDestination = PlantDexRoute) {
         composable<PlantDexRoute> {
-            PlantDexScreen(navController, innerPaddingValues)
+            PlantDexScreen(listAsCards, doubleColumn, navController, innerPaddingValues)
         }
         composable<BrowseRoute> {
             BrowseScreen(navController, innerPaddingValues)

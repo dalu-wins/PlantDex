@@ -29,7 +29,9 @@ import de.wins.plantdex.scanner_activity.ScannerActivity
 @Composable
 fun MainScreen(
     showNavigationBar: Boolean,
-    showNavigationRail: Boolean
+    showNavigationRail: Boolean,
+    listAsCards: Boolean,
+    doubleColumn: Boolean
 ) {
     val context = LocalContext.current
     val navController = rememberNavController()
@@ -78,7 +80,7 @@ fun MainScreen(
                     navController = navController
                 )
             }
-            MyNavHost(navController, innerPaddingValues)
+            MyNavHost(listAsCards, doubleColumn, navController, innerPaddingValues)
         }
     }
 }
