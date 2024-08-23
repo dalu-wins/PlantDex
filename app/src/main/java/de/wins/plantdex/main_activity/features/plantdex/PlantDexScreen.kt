@@ -1,6 +1,7 @@
 package de.wins.plantdex.main_activity.features.plantdex
 
 import android.content.Intent
+import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
@@ -53,22 +54,29 @@ fun PlantDexScreen(
                 columns = GridCells.Adaptive(minSize = 160.dp)
             ) {
                 items(plants) { plant ->
-                    PlantCard(plant, onClick = {
-                        // TODO Duplicate Code -> onEvent
-                        intent.putExtra("plantIndex", viewModel.getPlantIndex(plant))
-                        context.startActivity(intent)
-                    })
+                    PlantCard(
+                        plant = plant,
+                        onClick = {
+                            // TODO Duplicate Code -> onEvent
+                            intent.putExtra("plantIndex", viewModel.getPlantIndex(plant))
+                            context.startActivity(intent)
+                        }
+                    )
                 }
             }
         } else {
             val columns = if (doubleColumn) 2 else 1
             LazyVerticalGrid(columns = GridCells.Fixed(columns)) {
                 items(plants) { plant ->
-                    PlantListItem(plant, onClick = {
-                        // TODO Duplicate Code -> onEvent
-                        intent.putExtra("plantIndex", viewModel.getPlantIndex(plant))
-                        context.startActivity(intent)
-                    })
+                    Log.d("recomposition", "detected recomposition of ${viewModel.getPlantIndex(plant)}")
+                    PlantListItem(
+                        plant = plant,
+                        onClick = {
+                            // TODO Duplicate Code -> onEvent
+                            intent.putExtra("plantIndex", viewModel.getPlantIndex(plant))
+                            context.startActivity(intent)
+                        }
+                    )
                 }
             }
         }
