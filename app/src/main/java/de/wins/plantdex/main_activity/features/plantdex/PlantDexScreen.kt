@@ -43,7 +43,7 @@ fun PlantDexScreen(
             .padding(horizontal = 8.dp)
     ) {
         TitleRow(
-            listAsCards = listAsCards,
+            listAsCards = rememberedListAsCards,
             onPlantsAsListToggled = {
                 rememberedListAsCards = !rememberedListAsCards
             }
