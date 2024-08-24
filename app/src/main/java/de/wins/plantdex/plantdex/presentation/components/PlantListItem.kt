@@ -44,7 +44,7 @@ fun PlantListItem(plant: Plant, onClick: () -> Unit) {
             )
             Row(
                 modifier = Modifier
-                    .padding(start = 16.dp, bottom = 16.dp, top = 16.dp)
+                    .padding(start = 20.dp, bottom = 16.dp, top = 16.dp)
                     .weight(0.8f),
                 verticalAlignment = Alignment.CenterVertically
             ) {
