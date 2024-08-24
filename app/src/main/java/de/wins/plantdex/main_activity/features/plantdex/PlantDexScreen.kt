@@ -51,7 +51,7 @@ fun PlantDexScreen(
         val intent = Intent(context, DatasheetActivity::class.java)
         if (rememberedListAsCards) {
             LazyVerticalGrid(
-                columns = GridCells.Adaptive(minSize = 160.dp)
+                columns = GridCells.Adaptive(minSize = 240.dp)
             ) {
                 items(plants) { plant ->
                     PlantCard(

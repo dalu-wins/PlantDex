@@ -34,7 +34,7 @@ fun PlantCard(plant: Plant, onClick: () -> Unit) {
             Image(
                 modifier = Modifier
                     .fillMaxSize()
-                    .aspectRatio(1.5f)
+                    .aspectRatio(2f)
                     .align(Alignment.CenterHorizontally),
                 contentScale = ContentScale.Crop,
                 painter = painterResource(id = plant.imageId),

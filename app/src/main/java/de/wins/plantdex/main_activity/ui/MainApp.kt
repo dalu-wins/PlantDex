@@ -21,7 +21,7 @@ fun MainApp(windowSizeClass: WindowSizeClass = currentWindowAdaptiveInfo().windo
     val showNavigationRail = !showNavigationBar
 
     // Determine list style
-    val listAsCards = windowSizeClass.windowWidthSizeClass == WindowWidthSizeClass.COMPACT
+    val listAsCards = windowSizeClass.windowWidthSizeClass == WindowWidthSizeClass.EXPANDED
     val doubleColumn = windowSizeClass.windowWidthSizeClass == WindowWidthSizeClass.EXPANDED
 
     MainScreen(
