@@ -36,7 +36,7 @@ fun PlantListItem(plant: Plant, onClick: () -> Unit) {
             Image(
                 modifier = Modifier
                     .fillMaxHeight()
-                    .aspectRatio(1.2f)
+                    .aspectRatio(1f)
                     .align(Alignment.CenterVertically),
                 contentScale = ContentScale.Crop,
                 painter = painterResource(id = plant.imageId),
