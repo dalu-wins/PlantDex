@@ -6,4 +6,4 @@ import dagger.hilt.android.HiltAndroidApp
 // TODO move to core/di
 
 @HiltAndroidApp
-class PlantDexApplication : Application()k
+class PlantDexApplication : Application()
