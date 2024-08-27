@@ -9,10 +9,11 @@ import androidx.compose.ui.Modifier
 
 @Composable
 fun ShutterButton(
+    onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     FilledIconButton(
-        onClick = { /*TODO*/ },
+        onClick = onClick,
         modifier = modifier
     ) {
         Icon(

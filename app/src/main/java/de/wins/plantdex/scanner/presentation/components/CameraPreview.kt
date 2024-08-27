@@ -1,47 +1,47 @@
 package de.wins.plantdex.scanner.presentation.components
 
-import androidx.camera.view.LifecycleCameraController
+import android.annotation.SuppressLint
+import androidx.camera.core.CameraSelector
+import androidx.camera.core.ImageCapture
+import androidx.camera.core.Preview
 import androidx.camera.view.PreviewView
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.compose.LocalLifecycleOwner
+import de.wins.plantdex.scanner.presentation.logic.getCameraProvider
 
-/**
- * Code for showing a camera preview.
- * Copied from https://medium.com/deuk/from-setup-to-preview-camerax-integration-in-jetpack-compose-b74c18872693
- */
+@SuppressLint("RestrictedApi")
 @Composable
-fun CameraPreview(modifier: Modifier = Modifier) {
+fun CameraPreview(
+    imageCapture: ImageCapture,
+    modifier: Modifier = Modifier,
+    lensFacing: Int = CameraSelector.LENS_FACING_BACK
+) {
 
-    // Obtain the current context and lifecycle owner
     val context = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
 
-    // Remember a LifecycleCameraController for this composable
-    val cameraController = remember {
-        LifecycleCameraController(context).apply {
-            // Bind the LifecycleCameraController to the lifecycleOwner
-            bindToLifecycle(lifecycleOwner)
-        }
+    val preview = Preview.Builder().build()
+    val cameraSelector = CameraSelector.Builder()
+        .requireLensFacing(lensFacing)
+        .build()
+
+    val previewView = remember { PreviewView(context) }
+    LaunchedEffect(lensFacing) {
+        val cameraProvider = context.getCameraProvider()
+        cameraProvider.unbindAll()
+        cameraProvider.bindToLifecycle(
+            lifecycleOwner,
+            cameraSelector,
+            preview,
+            imageCapture
+        )
+        preview.setSurfaceProvider(previewView.surfaceProvider)
     }
 
-    // Key Point: Displaying the Camera Preview
-    AndroidView(
-        modifier = modifier,
-        factory = { ctx ->
-            // Initialize the PreviewView and configure it
-            PreviewView(ctx).apply {
-                scaleType = PreviewView.ScaleType.FILL_CENTER
-                implementationMode = PreviewView.ImplementationMode.COMPATIBLE
-                controller = cameraController // Set the controller to manage the camera lifecycle
-            }
-        },
-        onRelease = {
-            // Release the camera controller when the composable is removed from the screen
-            cameraController.unbind()
-        }
-    )
+    AndroidView({ previewView }, modifier = modifier)
 }

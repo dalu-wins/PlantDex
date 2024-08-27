@@ -8,10 +8,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import de.wins.plantdex.scanner.presentation.logic.CameraUIAction
 
 @Composable
 fun CameraControlRow(
-    modifier: Modifier
+    onCameraUIAction: (CameraUIAction) -> Unit,
+    modifier: Modifier = Modifier
 ) {
     Row(
         modifier = modifier,
@@ -21,7 +23,10 @@ fun CameraControlRow(
         ShutterButton(
             modifier = Modifier
                 .size(60.dp)
-                .aspectRatio(1f)
+                .aspectRatio(1f),
+            onClick = {
+                onCameraUIAction(CameraUIAction.OnShutterClick)
+            }
         )
     }
 }
