@@ -70,14 +70,15 @@ fun ScannerScreen(
                                 lensFacing,
                                 onImageCaptured = { uri, fromGallery ->
                                     Log.d(
-                                        "TAG",
-                                        "Image Uri Captured from Camera View"
-                                    ) //Todo : use the uri as needed
-                                }, onError = { imageCaptureException ->
+                                        "image capture",
+                                        "$uri, $fromGallery"
+                                    )
+                                }, onError = {
                                     scope.launch {
-                                        snackbarHostState.showSnackbar("An error occurred while trying to take a picture")
+                                        snackbarHostState.showSnackbar("An error occurred while trying to take a picture.")
                                     }
-                                })
+                                }
+                            )
                         }
                     }
                 },
