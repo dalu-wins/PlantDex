@@ -1,4 +1,4 @@
-package de.wins.plantdex.scanner.ui
+package de.wins.plantdex.scanner.presentation
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

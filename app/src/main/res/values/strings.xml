@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">PlantDex</string>
     <string name="datasheet">Datasheet</string>
-    <string name="datasheet_error">It seems like an error occurred. Try again later!</string>
+    <string name="datasheet_error">It seems like an error occurred. Try again later.</string>
     <string name="return_to_plantdex">Return to PlantDex</string>
+    <string name="scanner">Scanner</string>
 </resources>

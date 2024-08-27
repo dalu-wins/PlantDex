@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="datasheet">Datenblatt</string>
-    <string name="datasheet_error">Es scheint ein Fehler aufgetreten zu sein. Versuche es später erneut!</string>
-    <string name="return_to_plantdex">Zurück zum PlantDex</string>
-</resources>
