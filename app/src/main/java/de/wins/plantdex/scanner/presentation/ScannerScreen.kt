@@ -87,7 +87,8 @@ fun ScannerScreen(
                         } else {
                             false
                         }
-                    }
+                    },
+                    isBackCamera = lensFacing == CameraSelector.LENS_FACING_BACK
                 )
             }
         }

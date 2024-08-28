@@ -17,7 +17,8 @@ fun ScannerTopBar(
     title: String,
     onBack: () -> Unit,
     enabledTorch: Boolean,
-    onTorch: () -> Unit
+    onTorch: () -> Unit,
+    isBackCamera: Boolean
 ) {
     TopAppBar(
         title = {
@@ -29,7 +30,10 @@ fun ScannerTopBar(
             }
         },
         actions = {
-            IconButton(onClick = onTorch) {
+            IconButton(
+                onClick = onTorch,
+                enabled = isBackCamera
+            ) {
                 if (enabledTorch) {
                     Icon(Icons.Default.FlashOn, "Turn flash off")
                 } else {
