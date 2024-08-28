@@ -2,7 +2,6 @@ package de.wins.plantdex.scanner.presentation.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
@@ -18,7 +17,7 @@ fun CameraControlRow(
 ) {
     Row(
         modifier = modifier,
-        horizontalArrangement = Arrangement.Center,
+        horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically
     ) {
         GalleryButton(
@@ -29,7 +28,6 @@ fun CameraControlRow(
                 onCameraUIAction(CameraUIAction.OnOpenGallery)
             }
         )
-        Spacer(modifier = Modifier.size(30.dp))
         ShutterButton(
             modifier = Modifier
                 .size(60.dp)
@@ -38,7 +36,6 @@ fun CameraControlRow(
                 onCameraUIAction(CameraUIAction.OnTakePhoto)
             }
         )
-        Spacer(modifier = Modifier.size(30.dp))
         SwitchLensButton(
             modifier = Modifier
                 .size(60.dp)
