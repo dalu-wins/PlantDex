@@ -86,6 +86,7 @@ fun createFile(baseFolder: File, format: String, extension: String) =
 
 fun Context.getOutputDirectory(): File {
 
+    // TODO Let user select whether he wants to store pics in gallery or in app-specific dir
     val picturesDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
     val customDir = File(picturesDir, this.getString(R.string.app_name)).apply { mkdirs() }
 
