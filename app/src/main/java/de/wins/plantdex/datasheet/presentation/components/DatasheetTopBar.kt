@@ -1,4 +1,4 @@
-package de.wins.plantdex.core.presentation
+package de.wins.plantdex.datasheet.presentation.components
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MyTopBar(
+fun DatasheetTopBar(
     title: String,
     onBack: () -> Unit
 ) {

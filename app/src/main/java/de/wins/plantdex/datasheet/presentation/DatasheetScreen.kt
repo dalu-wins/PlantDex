@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import de.wins.plantdex.R
-import de.wins.plantdex.core.presentation.MyTopBar
+import de.wins.plantdex.datasheet.presentation.components.DatasheetTopBar
 
 @Composable
 fun DatasheetScreen(
@@ -19,7 +19,7 @@ fun DatasheetScreen(
     Scaffold(
         topBar = {
             if (showTopBar) {
-                MyTopBar(
+                DatasheetTopBar(
                     title = context.getString(R.string.datasheet),
                     onBack = onBack
                 )

@@ -14,18 +14,23 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import de.wins.plantdex.R
-import de.wins.plantdex.core.presentation.MyTopBar
 import de.wins.plantdex.scanner.presentation.components.CameraControlRow
 import de.wins.plantdex.scanner.presentation.components.CameraPreview
+import de.wins.plantdex.scanner.presentation.components.ScannerTopBar
 import de.wins.plantdex.scanner.presentation.logic.CameraUIAction
 import de.wins.plantdex.scanner.presentation.logic.takePicture
 import kotlinx.coroutines.launch
@@ -33,10 +38,9 @@ import kotlinx.coroutines.launch
 @Composable
 fun ScannerScreen(
     showTopBar: Boolean,
-    onBack: () -> Unit,
-    lensFacing: Int = CameraSelector.LENS_FACING_BACK
+    onBack: () -> Unit
 ) {
-    var rememberLensFacing by remember { mutableIntStateOf(lensFacing) }
+    var lensFacing by remember { mutableIntStateOf(CameraSelector.LENS_FACING_BACK) }
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
@@ -44,7 +48,27 @@ fun ScannerScreen(
     val galleryLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.GetContent()
     ) { uri: Uri? ->
-        if (uri != null) onImageCaptured(uri, true)
+        // TODO Replace onBack with navigation to a page to enter plant details
+        if (uri != null) onImageCaptured(uri, true, onBack)
+    }
+    var enabledTorch by remember { mutableStateOf(false) }
+
+    // Get the lifecycle of the current context
+    val lifecycleOwner = LocalLifecycleOwner.current
+
+    // DisposableEffect to handle lifecycle events
+    DisposableEffect(lifecycleOwner) {
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_RESUME) {
+                enabledTorch = false
+            }
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+
+        // Cleanup when the effect leaves the composition
+        onDispose {
+            lifecycleOwner.lifecycle.removeObserver(observer)
+        }
     }
 
     Scaffold(
@@ -53,9 +77,17 @@ fun ScannerScreen(
         },
         topBar = {
             if (showTopBar) {
-                MyTopBar(
+                ScannerTopBar(
                     title = context.getString(R.string.scanner),
-                    onBack = onBack
+                    onBack = onBack,
+                    enabledTorch = enabledTorch,
+                    onTorch = {
+                        enabledTorch = if (lensFacing == CameraSelector.LENS_FACING_BACK) {
+                            !enabledTorch
+                        } else {
+                            false
+                        }
+                    }
                 )
             }
         }
@@ -68,11 +100,12 @@ fun ScannerScreen(
             verticalArrangement = Arrangement.Center
         ) {
             CameraPreview(
-                lensFacing = rememberLensFacing,
+                lensFacing = lensFacing,
                 imageCapture = imageCapture,
                 modifier = Modifier
                     .fillMaxSize()
-                    .weight(0.7f)
+                    .weight(0.7f),
+                enabledTorch = enabledTorch
             )
             CameraControlRow(
                 onCameraUIAction = { cameraUIAction ->
@@ -81,9 +114,10 @@ fun ScannerScreen(
                         is CameraUIAction.OnTakePhoto -> {
                             imageCapture.takePicture(
                                 context,
-                                rememberLensFacing,
+                                lensFacing,
                                 onImageCaptured = { uri ->
-                                    onImageCaptured(uri, false)
+                                    // TODO Replace onBack with navigation to a page to enter plant details
+                                    onImageCaptured(uri, false, onBack)
                                 },
                                 onError = {
                                     scope.launch {
@@ -94,11 +128,13 @@ fun ScannerScreen(
                         }
 
                         is CameraUIAction.OnSwitchLens -> {
-                            rememberLensFacing =
-                                if (rememberLensFacing == CameraSelector.LENS_FACING_BACK) CameraSelector.LENS_FACING_FRONT else CameraSelector.LENS_FACING_BACK
+                            enabledTorch = false
+                            lensFacing =
+                                if (lensFacing == CameraSelector.LENS_FACING_BACK) CameraSelector.LENS_FACING_FRONT else CameraSelector.LENS_FACING_BACK
                         }
 
                         is CameraUIAction.OnOpenGallery -> {
+                            enabledTorch = false
                             galleryLauncher.launch("image/*")
                         }
                     }
@@ -111,9 +147,10 @@ fun ScannerScreen(
     }
 }
 
-private fun onImageCaptured(uri: Uri, fromGallery: Boolean) {
+private fun onImageCaptured(uri: Uri, fromGallery: Boolean, navigate: () -> Unit) {
     Log.d(
         "image capture",
         "$uri, $fromGallery"
     )
+    navigate()
 }
