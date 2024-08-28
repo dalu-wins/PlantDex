@@ -10,6 +10,7 @@ import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
 import androidx.core.net.toFile
+import de.wins.plantdex.R
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -84,13 +85,13 @@ fun createFile(baseFolder: File, format: String, extension: String) =
 
 
 fun Context.getOutputDirectory(): File {
-    val mediaDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES)?.apply { mkdirs() }
 
-    // TODO Look into where files really should be stored
-    return if (mediaDir != null && mediaDir.exists()) {
-        mediaDir
+    val picturesDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
+    val customDir = File(picturesDir, this.getString(R.string.app_name)).apply { mkdirs() }
+
+    return if (customDir.exists()) {
+        customDir
     } else {
-        // TODO and where they should not?
-        this.filesDir
+        picturesDir
     }
 }
