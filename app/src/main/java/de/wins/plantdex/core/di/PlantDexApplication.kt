@@ -1,9 +1,7 @@
-package de.wins.plantdex
+package de.wins.plantdex.core.di
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
-
-// TODO move to core/di
 
 @HiltAndroidApp
 class PlantDexApplication : Application()

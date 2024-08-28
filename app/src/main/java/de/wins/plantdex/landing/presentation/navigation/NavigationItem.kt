@@ -11,9 +11,10 @@ import de.wins.plantdex.profile.presentation.ProfileRoute
 
 data class NavigationItem(val label: String, val icon: ImageVector, val route: Route) {
     companion object {
-        val PLANTDEX = NavigationItem("PlantDex", Icons.Default.AutoAwesomeMosaic, PlantDexRoute)
-        val BROWSE = NavigationItem("Browse", Icons.Default.Public, BrowseRoute)
-        val PROFILE = NavigationItem("Profile", Icons.Default.AccountCircle, ProfileRoute)
+        private val PLANTDEX =
+            NavigationItem("PlantDex", Icons.Default.AutoAwesomeMosaic, PlantDexRoute)
+        private val BROWSE = NavigationItem("Browse", Icons.Default.Public, BrowseRoute)
+        private val PROFILE = NavigationItem("Profile", Icons.Default.AccountCircle, ProfileRoute)
 
         val LIST = listOf(
             BROWSE,

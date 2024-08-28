@@ -8,7 +8,7 @@
 
     <application
         android:enableOnBackInvokedCallback="true"
-        android:name=".PlantDexApplication"
+        android:name=".core.di.PlantDexApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
