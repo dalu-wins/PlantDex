@@ -1,6 +1,9 @@
 package de.wins.plantdex.scanner.presentation
 
+import android.net.Uri
 import android.util.Log
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.compose.foundation.layout.Arrangement
@@ -11,8 +14,11 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -30,10 +36,16 @@ fun ScannerScreen(
     onBack: () -> Unit,
     lensFacing: Int = CameraSelector.LENS_FACING_BACK
 ) {
+    var rememberLensFacing by remember { mutableIntStateOf(lensFacing) }
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
     val imageCapture: ImageCapture = remember { ImageCapture.Builder().build() }
+    val galleryLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.GetContent()
+    ) { uri: Uri? ->
+        if (uri != null) onImageCaptured(uri, true)
+    }
 
     Scaffold(
         snackbarHost = {
@@ -56,6 +68,7 @@ fun ScannerScreen(
             verticalArrangement = Arrangement.Center
         ) {
             CameraPreview(
+                lensFacing = rememberLensFacing,
                 imageCapture = imageCapture,
                 modifier = Modifier
                     .fillMaxSize()
@@ -64,21 +77,29 @@ fun ScannerScreen(
             CameraControlRow(
                 onCameraUIAction = { cameraUIAction ->
                     when (cameraUIAction) {
-                        is CameraUIAction.OnShutterClick -> {
+
+                        is CameraUIAction.OnTakePhoto -> {
                             imageCapture.takePicture(
                                 context,
-                                lensFacing,
-                                onImageCaptured = { uri, fromGallery ->
-                                    Log.d(
-                                        "image capture",
-                                        "$uri, $fromGallery"
-                                    )
-                                }, onError = {
+                                rememberLensFacing,
+                                onImageCaptured = { uri ->
+                                    onImageCaptured(uri, false)
+                                },
+                                onError = {
                                     scope.launch {
                                         snackbarHostState.showSnackbar("An error occurred while trying to take a picture.")
                                     }
                                 }
                             )
+                        }
+
+                        is CameraUIAction.OnSwitchLens -> {
+                            rememberLensFacing =
+                                if (rememberLensFacing == CameraSelector.LENS_FACING_BACK) CameraSelector.LENS_FACING_FRONT else CameraSelector.LENS_FACING_BACK
+                        }
+
+                        is CameraUIAction.OnOpenGallery -> {
+                            galleryLauncher.launch("image/*")
                         }
                     }
                 },
@@ -88,4 +109,11 @@ fun ScannerScreen(
             )
         }
     }
+}
+
+private fun onImageCaptured(uri: Uri, fromGallery: Boolean) {
+    Log.d(
+        "image capture",
+        "$uri, $fromGallery"
+    )
 }

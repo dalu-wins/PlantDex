@@ -22,7 +22,7 @@ private const val PHOTO_EXTENSION = ".jpg"
 fun ImageCapture.takePicture(
     context: Context,
     lensFacing: Int,
-    onImageCaptured: (Uri, Boolean) -> Unit,
+    onImageCaptured: (Uri) -> Unit,
     onError: (ImageCaptureException) -> Unit
 ) {
     val outputDirectory = context.getOutputDirectory()
@@ -46,10 +46,10 @@ fun ImageCapture.takePicture(
                     context,
                     arrayOf(savedUri.toFile().absolutePath),
                     arrayOf(mimeType)
-                ) { _, uri ->
+                ) { _, _ ->
 
                 }
-                onImageCaptured(savedUri, false)
+                onImageCaptured(savedUri)
             }
 
             override fun onError(exception: ImageCaptureException) {
