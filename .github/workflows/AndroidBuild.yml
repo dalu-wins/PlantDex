@@ -16,10 +16,6 @@ jobs:
           java-version: 17
           distribution: corretto
 
-      # Build APK
-      - name: Build with Gradle
-        run: ./gradlew build
-
       # Run unit tests
       - name: Unit Test
         run: ./gradlew testDebugUnitTest
@@ -27,6 +23,10 @@ jobs:
       - name: Android Test Report
         uses: asadmansr/android-test-report-action@v1.2.0
         if: ${{ always() }} # IMPORTANT: run Android Test Report
+
+      # Build APK
+      - name: Build with Gradle
+        run: ./gradlew build
 
       # Upload APK
       - name: Upload a Build Artifact
