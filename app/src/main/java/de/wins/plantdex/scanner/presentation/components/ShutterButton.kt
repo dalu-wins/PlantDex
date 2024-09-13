@@ -1,9 +1,6 @@
 package de.wins.plantdex.scanner.presentation.components
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.PhotoCamera
 import androidx.compose.material3.FilledIconButton
-import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
@@ -16,9 +13,9 @@ fun ShutterButton(
         onClick = onClick,
         modifier = modifier
     ) {
-        Icon(
-            imageVector = Icons.Default.PhotoCamera,
-            contentDescription = "Take a photo"
-        )
+//        Icon(
+//            imageVector = Icons.Default.Camera,
+//            contentDescription = "Take a photo"
+//        )
     }
 }
