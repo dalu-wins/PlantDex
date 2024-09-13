@@ -2,6 +2,7 @@ package de.wins.plantdex.landing.presentation.navigation
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -17,11 +18,18 @@ fun MyNavHost(
     listAsCards: Boolean,
     doubleColumn: Boolean,
     navController: NavHostController,
+    expandedFAB: MutableState<Boolean>,
     innerPaddingValues: PaddingValues
 ) {
     NavHost(navController = navController, startDestination = PlantDexRoute) {
         composable<PlantDexRoute> {
-            PlantDexScreen(listAsCards, doubleColumn, navController, innerPaddingValues)
+            PlantDexScreen(
+                listAsCards,
+                doubleColumn,
+                navController,
+                expandedFAB,
+                innerPaddingValues
+            )
         }
         composable<BrowseRoute> {
             BrowseScreen(navController, innerPaddingValues)
