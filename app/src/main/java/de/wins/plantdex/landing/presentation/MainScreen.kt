@@ -7,18 +7,17 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.rememberNavController
-import de.wins.plantdex.landing.presentation.navigation.ExtendedScannerFAB
 import de.wins.plantdex.landing.presentation.navigation.MyNavHost
 import de.wins.plantdex.landing.presentation.navigation.MyNavigationBar
 import de.wins.plantdex.landing.presentation.navigation.MyNavigationRail
 import de.wins.plantdex.landing.presentation.navigation.NavigationItem
+import de.wins.plantdex.landing.presentation.navigation.ScannerFAB
 import de.wins.plantdex.scanner.ScannerActivity
 
 /**
@@ -37,9 +36,6 @@ fun MainScreen(
     val context = LocalContext.current
     val navController = rememberNavController()
     var selectedItemIndex by rememberSaveable { mutableIntStateOf(1) }
-
-
-    val expandedFAB = rememberSaveable { mutableStateOf(true) }
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -62,8 +58,7 @@ fun MainScreen(
         },
         floatingActionButton = {
             if (!showNavigationRail) {
-                ExtendedScannerFAB(
-                    expanded = expandedFAB.value,
+                ScannerFAB(
                     onClick = {
                         context.startActivity(Intent(context, ScannerActivity::class.java))
                     }
@@ -87,7 +82,7 @@ fun MainScreen(
                     navController = navController
                 )
             }
-            MyNavHost(listAsCards, doubleColumn, navController, expandedFAB, innerPaddingValues)
+            MyNavHost(listAsCards, doubleColumn, navController, innerPaddingValues)
         }
     }
 }

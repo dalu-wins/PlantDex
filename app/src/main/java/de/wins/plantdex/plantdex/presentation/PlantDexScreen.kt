@@ -8,15 +8,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -34,22 +29,12 @@ fun PlantDexScreen(
     listAsCards: Boolean,
     doubleColumn: Boolean,
     navController: NavController,
-    expandedFAB: MutableState<Boolean>,
     innerPaddingValues: PaddingValues,
     viewModel: PlantDexViewModel = hiltViewModel()
 ) {
 
     val context = LocalContext.current
     val plants by viewModel.plantRepository.plants.collectAsState()
-
-    // Handle FAB expansion
-    val gridState = rememberLazyGridState()
-    val firstVisibleItemIndex by remember {
-        derivedStateOf { gridState.firstVisibleItemIndex }
-    }
-    LaunchedEffect(firstVisibleItemIndex) {
-        expandedFAB.value = firstVisibleItemIndex == 0
-    }
 
     var myListAsCards by rememberSaveable { mutableStateOf(listAsCards) }
 
@@ -70,7 +55,6 @@ fun PlantDexScreen(
         val intent = Intent(context, DatasheetActivity::class.java)
         if (myListAsCards) {
             LazyVerticalGrid(
-                state = gridState,
                 columns = GridCells.Adaptive(minSize = 240.dp)
             ) {
                 items(plants) { plant ->
@@ -87,7 +71,6 @@ fun PlantDexScreen(
         } else {
             val columns = if (doubleColumn) 2 else 1
             LazyVerticalGrid(
-                state = gridState,
                 columns = GridCells.Fixed(columns)
             ) {
                 items(plants) { plant ->
