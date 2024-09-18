@@ -2,6 +2,7 @@ package de.wins.plantdex.landing.presentation.navigation
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -16,6 +17,7 @@ import de.wins.plantdex.profile.presentation.ProfileScreen
 fun MyNavHost(
     listAsCards: Boolean,
     navController: NavHostController,
+    expandedFAB: MutableState<Boolean>,
     innerPaddingValues: PaddingValues
 ) {
     NavHost(navController = navController, startDestination = PlantDexRoute) {
@@ -23,6 +25,7 @@ fun MyNavHost(
             PlantDexScreen(
                 listAsCards,
                 navController,
+                expandedFAB,
                 innerPaddingValues
             )
         }

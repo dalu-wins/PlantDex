@@ -6,10 +6,13 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -95,8 +98,7 @@ fun ScannerScreen(
     ) { innerPaddingValues ->
         Column(
             modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPaddingValues),
+                .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
@@ -105,10 +107,16 @@ fun ScannerScreen(
                 imageCapture = imageCapture,
                 modifier = Modifier
                     .fillMaxSize()
-                    .weight(0.7f),
+                    .weight(0.7f)
+                    .padding(innerPaddingValues),
                 enabledTorch = enabledTorch
             )
             CameraControlRow(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .weight(0.3f)
+                    .background(color = MaterialTheme.colorScheme.background)
+                    .navigationBarsPadding(),
                 onCameraUIAction = { cameraUIAction ->
                     when (cameraUIAction) {
 
@@ -139,10 +147,7 @@ fun ScannerScreen(
                             galleryLauncher.launch("image/*")
                         }
                     }
-                },
-                modifier = Modifier
-                    .fillMaxSize()
-                    .weight(0.3f),
+                }
             )
         }
     }
