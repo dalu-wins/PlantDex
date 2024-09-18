@@ -22,13 +22,11 @@ fun MainApp(windowSizeClass: WindowSizeClass = currentWindowAdaptiveInfo().windo
 
     // Determine list style
     val listAsCards = windowSizeClass.windowWidthSizeClass == WindowWidthSizeClass.EXPANDED
-    val doubleColumn = windowSizeClass.windowWidthSizeClass == WindowWidthSizeClass.EXPANDED
 
     MainScreen(
         showNavigationBar = showNavigationBar,
         showNavigationRail = showNavigationRail,
-        listAsCards = listAsCards,
-        doubleColumn = doubleColumn
+        listAsCards = listAsCards
     )
 
 }
