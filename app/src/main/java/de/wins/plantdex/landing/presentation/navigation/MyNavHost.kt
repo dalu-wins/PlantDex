@@ -16,7 +16,6 @@ import de.wins.plantdex.profile.presentation.ProfileScreen
 @Composable
 fun MyNavHost(
     listAsCards: Boolean,
-    doubleColumn: Boolean,
     navController: NavHostController,
     expandedFAB: MutableState<Boolean>,
     innerPaddingValues: PaddingValues
@@ -25,7 +24,6 @@ fun MyNavHost(
         composable<PlantDexRoute> {
             PlantDexScreen(
                 listAsCards,
-                doubleColumn,
                 navController,
                 expandedFAB,
                 innerPaddingValues

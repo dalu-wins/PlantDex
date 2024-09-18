@@ -32,7 +32,6 @@ import de.wins.plantdex.plantdex.presentation.components.TitleRow
 @Composable
 fun PlantDexScreen(
     listAsCards: Boolean,
-    doubleColumn: Boolean,
     navController: NavController,
     expandedFAB: MutableState<Boolean>,
     innerPaddingValues: PaddingValues,
@@ -85,10 +84,9 @@ fun PlantDexScreen(
                 }
             }
         } else {
-            val columns = if (doubleColumn) 2 else 1
             LazyVerticalGrid(
                 state = gridState,
-                columns = GridCells.Fixed(columns)
+                columns = GridCells.Adaptive(minSize = 480.dp)
             ) {
                 items(plants) { plant ->
                     Log.d("recomposition", "detected recomposition of ${viewModel.getPlantIndex(plant)}")
