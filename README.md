@@ -24,6 +24,8 @@ PlantDex is going to be a mobile application designed to help users identify and
 
 ```bash
 git clone https://github.com/dalu-wins/plantdex.git
+```
+```bash
 cd plantdex
 ```
 
