@@ -38,7 +38,7 @@ cd plantdex
 3. Connect your Android device or set up an emulator.
 4. Click the **Run** button to install the app.
 
-## 📚 How I imagine it will work
+## 📚 How it will work
 
 1. **Home Screen**: 
    - The main screen displays your plant collection. 
