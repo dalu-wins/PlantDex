@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Environment
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
+import de.wins.plantdex.R
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -36,20 +37,20 @@ fun createFile(baseFolder: File, format: String, extension: String) =
 fun Context.getOutputDirectory(): File {
 
     // TODO Let user select whether he wants to store pics in gallery or in app-specific dir
-//    val picturesDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
-//    val customDir = File(picturesDir, this.getString(R.string.app_name)).apply { mkdirs() }
-//
-//    return if (customDir.exists()) {
-//        customDir
-//    } else {
-//        picturesDir
-//    }
+    val picturesDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
+    val customDir = File(picturesDir, this.getString(R.string.app_name)).apply { mkdirs() }
 
-    val mediaDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES)?.apply { mkdirs() }
-
-    return if (mediaDir != null && mediaDir.exists()) {
-        mediaDir
+    return if (customDir.exists()) {
+        customDir
     } else {
-        this.filesDir
+        picturesDir
     }
+
+//    val mediaDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES)?.apply { mkdirs() }
+//
+//    return if (mediaDir != null && mediaDir.exists()) {
+//        mediaDir
+//    } else {
+//        this.filesDir
+//    }
 }

@@ -1,5 +1,6 @@
 package de.wins.plantdex.scanner.presentation
 
+import CameraPreview
 import android.net.Uri
 import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -32,7 +33,6 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import de.wins.plantdex.R
 import de.wins.plantdex.scanner.presentation.components.CameraControlRow
-import de.wins.plantdex.scanner.presentation.components.CameraPreview
 import de.wins.plantdex.scanner.presentation.components.ScannerTopBar
 import de.wins.plantdex.scanner.presentation.logic.CameraUIAction
 import de.wins.plantdex.scanner.presentation.logic.takePicture
