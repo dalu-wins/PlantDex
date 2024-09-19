@@ -23,7 +23,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavController
 import de.wins.plantdex.datasheet.DatasheetActivity
 import de.wins.plantdex.plantdex.presentation.components.PlantCard
 import de.wins.plantdex.plantdex.presentation.components.PlantListItem
@@ -32,7 +31,6 @@ import de.wins.plantdex.plantdex.presentation.components.TitleRow
 @Composable
 fun PlantDexScreen(
     listAsCards: Boolean,
-    navController: NavController,
     expandedFAB: MutableState<Boolean>,
     innerPaddingValues: PaddingValues,
     viewModel: PlantDexViewModel = hiltViewModel()

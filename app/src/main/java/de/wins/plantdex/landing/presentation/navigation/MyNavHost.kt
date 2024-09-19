@@ -24,16 +24,15 @@ fun MyNavHost(
         composable<PlantDexRoute> {
             PlantDexScreen(
                 listAsCards,
-                navController,
                 expandedFAB,
                 innerPaddingValues
             )
         }
         composable<BrowseRoute> {
-            BrowseScreen(navController, innerPaddingValues)
+            BrowseScreen(innerPaddingValues)
         }
         composable<ProfileRoute> {
-            ProfileScreen(navController, innerPaddingValues)
+            ProfileScreen(innerPaddingValues)
         }
     }
 }

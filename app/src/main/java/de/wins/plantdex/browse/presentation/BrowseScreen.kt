@@ -9,14 +9,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavController
 
 /**
  * Browse all plants in this screen. Plant database is loaded from a database.
  */
 @Composable
 fun BrowseScreen(
-    navController: NavController,
     innerPaddingValues: PaddingValues
 ) {
     Column(
