@@ -70,7 +70,7 @@ fun PlantDexScreen(
         if (myListAsCards) {
             LazyVerticalGrid(
                 state = gridState,
-                columns = GridCells.Adaptive(minSize = 240.dp)
+                columns = GridCells.Adaptive(minSize = 300.dp)
             ) {
                 items(plants) { plant ->
                     PlantCard(
@@ -86,7 +86,7 @@ fun PlantDexScreen(
         } else {
             LazyVerticalGrid(
                 state = gridState,
-                columns = GridCells.Adaptive(minSize = 480.dp)
+                columns = GridCells.Adaptive(minSize = 500.dp)
             ) {
                 items(plants) { plant ->
                     Log.d("recomposition", "detected recomposition of ${viewModel.getPlantIndex(plant)}")
