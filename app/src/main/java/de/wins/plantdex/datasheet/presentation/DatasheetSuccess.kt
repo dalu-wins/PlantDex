@@ -3,33 +3,39 @@ package de.wins.plantdex.datasheet.presentation
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.offset
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 import de.wins.plantdex.core.domain.Plant
+import de.wins.plantdex.datasheet.presentation.components.InfoColumn
 
 @Composable
 fun DatasheetSuccess(plant: Plant, innerPaddingValues: PaddingValues){
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(innerPaddingValues)
+            .consumeWindowInsets(innerPaddingValues)
     ) {
         Image(
             modifier = Modifier
                 .fillMaxWidth()
-                .aspectRatio(2f),
+                .weight(0.35f),
             contentScale = ContentScale.Crop,
             painter = painterResource(id = plant.imageId),
-            contentDescription = "placeholder image"
+            contentDescription = "plant image"
         )
-        Text(text = "name: ${plant.name}")
-        Text(text = "date: ${plant.scanDate}")
+        InfoColumn(
+            plant = plant,
+            modifier = Modifier
+                .fillMaxWidth()
+                .weight(0.65f)
+                .offset(y = (-24).dp)
+        )
     }
 }

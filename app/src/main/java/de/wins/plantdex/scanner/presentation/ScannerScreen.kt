@@ -31,7 +31,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
-import de.wins.plantdex.R
 import de.wins.plantdex.scanner.presentation.components.CameraControlRow
 import de.wins.plantdex.scanner.presentation.components.ScannerTopBar
 import de.wins.plantdex.scanner.presentation.logic.CameraUIAction
@@ -81,7 +80,6 @@ fun ScannerScreen(
         topBar = {
             if (showTopBar) {
                 ScannerTopBar(
-                    title = context.getString(R.string.scanner),
                     onBack = onBack,
                     enabledTorch = enabledTorch,
                     onTorch = {
