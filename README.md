@@ -4,7 +4,6 @@ PlantDex is going to be a mobile application designed to help users identify and
 
 ## 🚀 Planned Features
 
-- **Plant Identification**: Take pictures of plants and use AI to identify plant species instantly.
 - **Plant Database**: Browse through an extensive database of plants with rich details such as scientific names, growing conditions, and more.
 - **Personal Plant Collection**: Create your own plantdex by saving plants you've identified and logging specific details.
 - **Camera Integration**: The app utilizes your device's camera with advanced controls like zoom, flash, and torch modes for better picture quality.
